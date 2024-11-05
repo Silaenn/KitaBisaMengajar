@@ -1,40 +1,56 @@
+import PropTypes from "prop-types";
+
+StepCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+};
+
+Icon.propTypes = {
+  type: PropTypes.oneOf(["user", "subject", "teach"]).isRequired,
+};
+
 const WaysOfWorking = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <h2 className="text-[32px] font-bold text-paragraf-secondary mb-10">
         Wujudkan Pendidikan Berkualitas untuk Semua
       </h2>
-      <div className="container mx-auto bg-white p-8 rounded-lg flex flex-col lg:flex-row items-center lg:items-start gap-8">
-        {/* Section Gambar */}
-        <div className="relative flex-shrink-0 ">
-          <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-100 rounded-full"></div>
-          <img
-            src="https://via.placeholder.com/300x400"
-            alt="Volunteer"
-            className="relative z-10 w-72 rounded-lg"
-          />
-        </div>
-        {/* Section Teks */}
-        <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-3xl font-bold mt-2">
-            Cara kerja KitabisaMengajar
-          </h1>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <StepCard
-              title="Daftar Sebagai Volunteer"
-              description="Bergabung sebagai pengajar sukarela dengan fleksibilitas waktu 1-2 jam per minggu"
-              icon="user"
+      <div className="flex justify-center">
+        <div className="container mx-auto p-8 rounded-lg flex flex-col lg:flex-row items-center lg:items-center gap-28">
+          {/* Section Gambar */}
+          <div className="relative">
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-100 rounded-full"></div>
+            <img
+              src="https://via.placeholder.com/300x400"
+              alt="Volunteer"
+              className="relative z-10 w-72 rounded-lg"
             />
-            <StepCard
-              title="Pilih Mata Pelajaran"
-              description="Fokus mengajar mata pelajaran STEM sesuai keahlian Anda"
-              icon="subject"
-            />
-            <StepCard
-              title="Mulai Mengajar"
-              description="Berbagi ilmu melalui kelas virtual dengan maksimal 25 siswa"
-              icon="teach"
-            />
+          </div>
+          {/* Section Teks */}
+          <div className="text-center ">
+            <h1 className="text-[44px] font-bold text-center">
+              Cara kerja KitabisaMengajar
+            </h1>
+            <div className="flex justify-center mt-6">
+              <StepCard
+                title="Daftar Sebagai Volunteer"
+                description="Bergabung sebagai pengajar sukarela dengan fleksibilitas waktu 1-2 jam per minggu"
+                icon="user"
+              />
+            </div>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
+              <StepCard
+                title="Pilih Mata Pelajaran"
+                description="Fokus mengajar mata pelajaran STEM sesuai keahlian Anda"
+                icon="subject"
+              />
+              <StepCard
+                title="Mulai Mengajar"
+                description="Berbagi ilmu melalui kelas virtual dengan maksimal 25 siswa"
+                icon="teach"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -45,12 +61,12 @@ const WaysOfWorking = () => {
 // Komponen untuk Langkah
 function StepCard({ title, description, icon }) {
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg text-center">
-      <div className="text-blue-500 mb-4">
+    <div className="bg-white shadow-md w-96 p-6 rounded-lg text-center">
+      <div className="text-paragraf-primary mb-4">
         <Icon type={icon} />
       </div>
       <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
+      <p className="text-paragraf-secondary mt-2">{description}</p>
     </div>
   );
 }
