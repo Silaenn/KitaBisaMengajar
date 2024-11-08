@@ -8,7 +8,7 @@ FeatureCard.propTypes = {
 
 const Superiority = () => {
   return (
-    <div className=" min-h-screen mx-auto p-4">
+    <div className=" min-h-full my-10 mx-auto p-4">
       <h2 className="text-center text-[32px] font-bold mb-6">
         Platform Pembelajaran yang Revolusioner
       </h2>
