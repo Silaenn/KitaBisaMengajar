@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../lib//AuthContext";
+import { useAuth } from "../lib/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -8,27 +8,31 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState("student"); // Default role
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isLogin) {
       // Logika untuk login
-      console.log("Logging in with:", email, password);
+      console.log("Logging in with:", email, password, "Role:", role);
+      // Navigasi ke halaman berdasarkan peran
+      navigate(role === "teacher" ? "/dashboard-mentor" : "/dashboard-student");
     } else {
       // Logika untuk register
       if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
       }
-      console.log("Registering with:", name, email, password);
+      console.log("Registering with:", name, email, password, "Role:", role);
+      // Tambahkan logika untuk registrasi di sini
     }
   };
 
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+    <div className="flex justify-center items-center min-h-screen ">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-3/12">
         <h2 className="text-2xl font-semibold text-center mb-4">
           {isLogin ? "Login" : "Register"}
         </h2>
@@ -101,10 +105,23 @@ const Login = () => {
               />
             </div>
           )}
+          {/* Pilihan Peran */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-600">
+              Role
+            </label>
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="w-full p-2 mt-2 border border-gray-300 rounded-md"
+            >
+              <option value="student">Murid</option>
+              <option value="teacher">Guru</option>
+            </select>
+          </div>
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-            onClick={isLogin ? navigate("/dashboard-mentor") : ""}
           >
             {isLogin ? "Login" : "Register"}
           </button>

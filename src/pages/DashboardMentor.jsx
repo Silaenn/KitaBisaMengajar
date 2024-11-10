@@ -4,16 +4,14 @@ import {
   Clock,
   Users,
   Book,
-  FileText,
-  User,
   Bell,
   ChevronRight,
   Medal,
   Heart,
   BarChart2,
-  Video,
-  MessageSquare,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import ProfileDummy from "../assets/DummyProfile.jpg";
 
 const DashboardMentor = () => {
   const [notifications] = useState([
@@ -73,38 +71,10 @@ const DashboardMentor = () => {
     },
   ]);
 
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg p-6">
-        <div className="flex items-center space-x-3 mb-10">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Book className="w-6 h-6 text-white" />
-          </div>
-          <h1 className="text-xl font-bold">KitaBisa Mengajar</h1>
-        </div>
-
-        <nav className="space-y-4">
-          {[
-            { icon: User, text: "Dashboard" },
-            { icon: Calendar, text: "Jadwal" },
-            { icon: Video, text: "Kelas Virtual" },
-            { icon: Book, text: "Materi" },
-            { icon: MessageSquare, text: "Diskusi" },
-            { icon: FileText, text: "Laporan" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              className={`flex items-center space-x-3 w-full p-3 rounded-lg hover:bg-blue-50 transition-colors
-                ${index === 0 ? "bg-blue-50 text-blue-600" : "text-gray-600"}`}
-            >
-              <item.icon className="w-5 h-5" />
-              <span>{item.text}</span>
-            </button>
-          ))}
-        </nav>
-      </div>
-
+    <div className="min-h-screen bg-gray-100">
       {/* Main Content */}
       <div className="ml-64 p-8">
         {/* Header */}
@@ -122,7 +92,7 @@ const DashboardMentor = () => {
             </button>
             <div className="flex items-center space-x-3 border rounded-full px-4 py-2">
               <img
-                src="/api/placeholder/40/40"
+                src={ProfileDummy}
                 alt="Profile"
                 className="w-8 h-8 rounded-full"
               />
@@ -192,7 +162,10 @@ const DashboardMentor = () => {
                         <h4 className="font-bold text-lg">{class_.subject}</h4>
                         <p className="text-gray-600">{class_.topic}</p>
                       </div>
-                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      <button
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        onClick={() => navigate("/classroomInterface")}
+                      >
                         Masuk Kelas
                       </button>
                     </div>
@@ -228,7 +201,8 @@ const DashboardMentor = () => {
                 {achievements.map((achievement) => (
                   <div
                     key={achievement.id}
-                    className="flex items-center justify-between p-4 border rounded-lg hover:shadow-md transition-shadow"
+                    className="flex items-center justify-between p-4 border rounded-lg hover:shadow-md transition-shadow cursor-pointer"
+                    onClick={() => navigate("/achievement")}
                   >
                     <div className="flex items-center space-x-3">
                       {React.createElement(achievement.icon, {

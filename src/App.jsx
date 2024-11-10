@@ -10,6 +10,14 @@ import DashboardMentor from "./pages/DashboardMentor";
 import Login from "./pages/Login";
 import { AuthProvider } from "./lib/AuthContext";
 import LandingPages from "./pages/LandingPages";
+import ClassroomInterface from "./pages/ClassroomInterface";
+import Sidebar from "./components/ui/Sidebar";
+import JadwalPage from "./components/ui/JadwalPage";
+import KelasVirtualPage from "./components/ui/KelasVirtualPage";
+import MateriPage from "./components/ui/MateriPage";
+import DiskusiPage from "./components/ui/DiskusiPage";
+import LaporanPage from "./components/ui/LaporanPage";
+import AchievementPage from "./components/ui/AchievementPage";
 
 function App() {
   return (
@@ -22,23 +30,47 @@ function App() {
 }
 
 function Main() {
-  const location = useLocation(); // Get the current location/path
+  const location = useLocation();
+  const showSidebar = [
+    "/dashboard-mentor",
+    "/classroomInterface",
+    "/jadwal",
+    "/kelas",
+    "/materi",
+    "/diskusi",
+    "/laporan",
+    "/achievement",
+  ].includes(location.pathname);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Routes>
         <Route path="/login" element={<Login />} />
       </Routes>
-
-      <main className="flex-grow mx-auto my-5">
+      <main className={`my-5 ${location.pathname === "/" ? "mx-auto" : ""}`}>
         <Routes>
           <Route path="/" element={<LandingPages />} />
           <Route path="/dashboard-mentor" element={<DashboardMentor />} />
+          <Route path="/classroomInterface" element={<ClassroomInterface />} />
+          <Route path="/jadwal" element={<JadwalPage />} />
+          <Route path="/kelas" element={<KelasVirtualPage />} />
+          <Route path="/materi" element={<MateriPage />} />
+          <Route path="/diskusi" element={<DiskusiPage />} />
+          <Route path="/laporan" element={<LaporanPage />} />
+          <Route path="/achievement" element={<AchievementPage />} />
         </Routes>
       </main>
 
+      {showSidebar && <Sidebar />}
       {location.pathname !== "/dashboard-mentor" &&
-        location.pathname !== "/login" && <Footer />}
+        location.pathname !== "/classroomInterface" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/jadwal" &&
+        location.pathname !== "/kelas" &&
+        location.pathname !== "/materi" &&
+        location.pathname !== "/diskusi" &&
+        location.pathname !== "/laporan" &&
+        location.pathname !== "/achievement" && <Footer />}
     </div>
   );
 }
