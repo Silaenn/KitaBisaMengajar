@@ -1,4 +1,19 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../lib/AuthContext";
+
 const HomePage = () => {
+  const { setIsLogin } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    setIsLogin(true);
+    navigate("/login");
+  };
+
+  const handleRegisterClick = () => {
+    setIsLogin(false);
+    navigate("/login");
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -23,10 +38,16 @@ const HomePage = () => {
           </div>
         </div>
         <div className="space-x-5 hidden sm:block">
-          <button className="px-4 py-2 text-paragraf-primary border rounded-md border-paragraf-primary hover:bg-buttonHover hover:text-white">
+          <button
+            className="px-4 py-2 text-paragraf-primary border rounded-md border-paragraf-primary hover:bg-buttonHover hover:text-white"
+            onClick={() => handleLoginClick()}
+          >
             Login
           </button>
-          <button className="px-4 py-2 text-white bg-paragraf-primary rounded-full hover:bg-buttonHover">
+          <button
+            className="px-4 py-2 text-white bg-paragraf-primary rounded-full hover:bg-buttonHover"
+            onClick={() => handleRegisterClick()}
+          >
             Join Now
           </button>
         </div>
