@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../lib/AuthContext";
+import Guru2 from "../assets/Guru2.png";
 
 const HomePage = () => {
   const { setIsLogin } = useAuth();
@@ -116,7 +117,7 @@ const HomePage = () => {
           <div className="relative">
             <div className="w-full aspect-square bg-blue-100 rounded-full relative overflow-hidden">
               <img
-                src="/teacher-image.jpg"
+                src={Guru2}
                 alt="Teacher"
                 className="absolute bottom-0 right-0 w-full h-auto object-cover"
               />

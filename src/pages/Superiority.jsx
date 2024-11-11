@@ -8,12 +8,14 @@ FeatureCard.propTypes = {
 
 const Superiority = () => {
   return (
-    <div className=" min-h-full my-10 mx-auto flex flex-col items-center p-4">
+    <div className="min-h-full my-10 mx-auto flex flex-col items-center p-4">
       <h2 className="text-center text-[32px] font-bold mb-6">
         Platform Pembelajaran yang Revolusioner
       </h2>
 
-      <div className="space-y-4 w-[1000px]">
+      <div className="space-y-4 w-full max-w-3xl">
+        {" "}
+        {/* Responsive width */}
         <FeatureCard
           icon="👁️"
           title="AI-Powered Matching"
@@ -41,7 +43,7 @@ const Superiority = () => {
 
 function FeatureCard({ icon, title, description }) {
   return (
-    <div className="flex items-start bg-blue-100 p-4 rounded-lg">
+    <div className="flex items-start bg-blue-100 p-4 rounded-lg shadow-md">
       <div className="text-blue-500 text-2xl mr-4">{icon}</div>
       <div>
         <h3 className="text-lg font-semibold">{title}</h3>

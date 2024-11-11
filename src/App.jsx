@@ -47,7 +47,11 @@ function Main() {
       <Routes>
         <Route path="/login" element={<Login />} />
       </Routes>
-      <main className={`my-5 ${location.pathname === "/" ? "mx-auto" : ""}`}>
+      <main
+        className={`${location.pathname === "/" ? "mx-auto" : ""} ${
+          location.pathname === "/login" ? "" : ""
+        }`}
+      >
         <Routes>
           <Route path="/" element={<LandingPages />} />
           <Route path="/dashboard-mentor" element={<DashboardMentor />} />
