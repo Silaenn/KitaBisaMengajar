@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useAuth } from "../lib/AuthContext";
+import { useAuth } from "../../lib/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Guru1 from "../assets/Guru1.png";
-import Guru2 from "../assets/Guru2.png"; // Ganti dengan path gambar yang sesuai
+import Guru1 from "../../assets/Guru1.png";
 import { Book } from "lucide-react";
 
 const Login = () => {

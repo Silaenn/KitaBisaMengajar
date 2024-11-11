@@ -7,6 +7,8 @@ export default {
     extend: {
       screens: {
         "lg-md": "1028px", // Menambahkan breakpoint baru khusus untuk 1028px
+        custom: "1361px",
+        "md-lg": "985px",
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"], // Mengganti font sans default ke Poppins

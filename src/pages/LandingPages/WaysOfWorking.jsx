@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Guru3 from "../assets/Guru3.png";
+import Guru3 from "../../assets/Guru3.png";
 
 StepCard.propTypes = {
   title: PropTypes.string.isRequired,

@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Footer from "./pages/Footer";
-import DashboardMentor from "./pages/DashboardMentor";
-import Login from "./pages/Login";
+import DashboardMentor from "./pages/DashBoard/DashboardMentor";
+import Login from "./pages/LoginRegister/Login";
 import { AuthProvider } from "./lib/AuthContext";
-import LandingPages from "./pages/LandingPages";
+import LandingPages from "./pages/LandingPages/LandingPages";
 import ClassroomInterface from "./pages/ClassroomInterface";
 import Sidebar from "./components/ui/Sidebar";
 import JadwalPage from "./components/ui/JadwalPage";

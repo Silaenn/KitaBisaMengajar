@@ -31,7 +31,7 @@ import {
   Check,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import ProfileDummy from "../assets/DummyProfile.jpg";
+import ProfileDummy from "../../assets/DummyProfile.jpg";
 
 const DashboardMentor = () => {
   const [isOpen, setIsOpen] = useState(false);

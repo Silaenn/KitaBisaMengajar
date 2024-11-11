@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../lib/AuthContext";
-import Guru2 from "../assets/Guru2.png";
+import { useAuth } from "../../lib/AuthContext";
+import Guru2 from "../../assets/Guru2.png";
 
 const HomePage = () => {
   const { setIsLogin } = useAuth();
