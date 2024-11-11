@@ -3,6 +3,7 @@ import { useAuth } from "../lib/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Guru1 from "../assets/Guru1.png";
 import Guru2 from "../assets/Guru2.png"; // Ganti dengan path gambar yang sesuai
+import { Book } from "lucide-react";
 
 const Login = () => {
   const { isLogin, setIsLogin } = useAuth();
@@ -29,8 +30,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-lg shadow-sm overflow-hidden">
         {/* Gambar Kiri */}
         <div className="hidden md:block md:w-1/2">
           <img
@@ -42,8 +43,16 @@ const Login = () => {
 
         {/* Form Login */}
         <div className="w-full md:w-1/2 p-6">
+          <div className="flex flex-col gap-3 justify-center items-center space-x-3 mb-10">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Book className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-xl text-paragraf-secondary font-bold">
+              KitaBisa Mengajar
+            </h1>
+          </div>
           <h2 className="text-3xl font-bold text-center mb-6">
-            {isLogin ? "Login" : "Register"}
+            {/* {isLogin ? "Login" : "Register"} */}
           </h2>
           <form onSubmit={handleSubmit}>
             {!isLogin && (
@@ -60,7 +69,7 @@ const Login = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+                  className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
                 />
               </div>
             )}
@@ -77,7 +86,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
               />
             </div>
             <div className="mb-3">
@@ -93,7 +102,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
               />
             </div>
             {!isLogin && (
@@ -110,7 +119,7 @@ const Login = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+                  className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
                 />
               </div>
             )}
@@ -122,7 +131,7 @@ const Login = () => {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
               >
                 <option value="student">Murid</option>
                 <option value="teacher">Guru</option>

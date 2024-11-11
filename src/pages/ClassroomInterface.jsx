@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Users, Book, MessageCircle, Video, Clock } from "lucide-react";
+import {
+  Users,
+  Book,
+  MessageCircle,
+  Video,
+  Clock,
+  ArrowLeft,
+} from "lucide-react";
 
 const ClassroomInterface = () => {
   const [activeTab, setActiveTab] = useState("materi");
@@ -14,6 +21,17 @@ const ClassroomInterface = () => {
 
   return (
     <div className="ml-64 min-h-screen bg-gray-50 p-6">
+      <div className="max-w-6xl mb-6">
+        <button
+          onClick={() => window.history.back()}
+          className="flex items-center text-gray-600 hover:text-blue-600 transition-colors group"
+        >
+          <div className="p-2 rounded-lg group-hover:bg-blue-50 transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+          </div>
+          <span className="ml-2 font-medium">Kembali</span>
+        </button>
+      </div>
       {/* Header */}
       <div className="ml-6">
         <h1 className="text-2xl font-bold text-gray-900">

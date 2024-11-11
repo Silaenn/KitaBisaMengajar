@@ -5,7 +5,7 @@ import WaysOfWorking from "./WaysOfWorking";
 
 const LandingPages = () => {
   return (
-    <div className="my-4 px-10">
+    <div className="my-4 px-14">
       <HomePage />
       <WaysOfWorking />
       <Superiority />
