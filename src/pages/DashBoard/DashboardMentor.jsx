@@ -77,11 +77,13 @@ const DashboardMentor = () => {
       id: 1,
       text: "Kelas Matematika akan dimulai dalam 30 menit",
       type: "upcoming",
+      url: "/kelas",
     },
     {
       id: 2,
       text: "Selamat! Anda telah menyelesaikan 10 jam mengajar",
       type: "achievement",
+      url: "/achievement",
     },
   ]);
 
@@ -224,7 +226,8 @@ const DashboardMentor = () => {
                   notif.type === "upcoming"
                     ? "bg-blue-50 text-blue-700"
                     : "bg-green-50 text-green-700"
-                }`}
+                } cursor-pointer`}
+              onClick={() => navigate(notif.url)}
             >
               <span>{notif.text}</span>
               <ChevronRight className="w-5 h-5" />

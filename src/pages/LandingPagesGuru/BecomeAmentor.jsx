@@ -1,8 +1,10 @@
-import Siswa1 from "../../assets/Siswa1.png";
-import Siswa2 from "../../assets/Siswa2.png";
-import Siswa3 from "../../assets/Siswa3.png";
+import { useNavigate } from "react-router-dom";
+import Siswa1 from "../../assets/Siswa/Siswa1.png";
+import Siswa2 from "../../assets/Siswa/Siswa2.png";
+import Siswa3 from "../../assets/Siswa/Siswa3.png";
 
 const BecomeAmentor = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-sky-50 min-h-screen flex items-center justify-center rounded-xl">
       <div className="max-w-7xl w-full p-8 relative">
@@ -42,7 +44,10 @@ const BecomeAmentor = () => {
               Bergabung dengan ribuan volunteer lainnya dalam misi mencerdaskan
               kehidupan bangsa.
             </p>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors">
+            <button
+              className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors"
+              onClick={() => navigate("/login")}
+            >
               Mulai Mengajar
             </button>
           </div>

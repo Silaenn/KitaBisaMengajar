@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import Guru4 from "../../assets/Guru4.png";
+import Siswa11 from "../../assets/Siswa/Siswa11.png";
+import { Award, CheckCircle, Cpu, MessageSquare } from "lucide-react";
 
 FeatureCard.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
@@ -13,7 +14,7 @@ const Superiority = () => {
       <div className="flex flex-wrap justify-center items-center gap-5">
         <div className="order-2 custom:order-1">
           <img
-            src={Guru4}
+            src={Siswa11}
             alt="Guru"
             className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl "
           />
@@ -27,24 +28,24 @@ const Superiority = () => {
             {" "}
             {/* Responsive width */}
             <FeatureCard
-              icon="👁️"
+              icon={Cpu}
               title="AI-Powered Matching"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Temukan pasangan belajar yang tepat menggunakan kecerdasan buatan."
             />
             <FeatureCard
-              icon="⚡"
+              icon={MessageSquare}
               title="Real-time Collaboration"
               description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
             />
             <FeatureCard
-              icon="🛡️"
+              icon={CheckCircle}
               title="Quality Assurance"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Pembelajaran dengan standar kualitas yang terjamin."
             />
             <FeatureCard
-              icon="🎁"
+              icon={Award}
               title="Gamification System"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Pembelajaran lebih menyenangkan dengan sistem gamifikasi."
             />
           </div>
         </div>
@@ -53,10 +54,12 @@ const Superiority = () => {
   );
 };
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon: Icon, title, description }) {
   return (
-    <div className="flex items-start bg-blue-100 p-4 rounded-lg shadow-md">
-      <div className="text-blue-500 text-2xl mr-4">{icon}</div>
+    <div className="flex items-center bg-blue-100 p-4 rounded-lg shadow-md">
+      <div className="text-blue-500 text-2xl mr-4">
+        <Icon />
+      </div>
       <div>
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="text-gray-600">{description}</p>

@@ -2,6 +2,7 @@ import {
   Book,
   Calendar,
   FileText,
+  LogOut,
   MessageSquare,
   User,
   Video,
@@ -22,7 +23,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg p-6">
+    <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg p-6 flex flex-col">
       <div className="flex items-center space-x-3 mb-10">
         <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
           <Book className="w-6 h-6 text-white" />
@@ -47,6 +48,16 @@ const Sidebar = () => {
           </button>
         ))}
       </nav>
+
+      <div className="mt-auto">
+        <button
+          className="w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 flex items-center gap-2"
+          onClick={() => navigate("/")}
+        >
+          <LogOut className="w-4 h-4" />
+          Keluar
+        </button>
+      </div>
     </div>
   );
 };

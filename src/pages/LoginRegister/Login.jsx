@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../lib/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Guru1 from "../../assets/Guru1.png";
+import Guru1 from "../../assets/Guru/Guru1.png";
 import { Book } from "lucide-react";
 
 const Login = () => {

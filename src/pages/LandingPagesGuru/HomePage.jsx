@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../lib/AuthContext";
-import Guru2 from "../../assets/Guru2.png";
+import Guru2 from "../../assets/Guru/Guru2.png";
+import Siswa4 from "../../assets/Siswa/Siswa4.png";
+import Siswa5 from "../../assets/Siswa/Siswa5.png";
+import Siswa6 from "../../assets/Siswa/Siswa6.png";
+import Siswa7 from "../../assets/Siswa/Siswa7.png";
+import Siswa8 from "../../assets/Siswa/Siswa8.png";
 
 const HomePage = () => {
   const { setIsLogin } = useAuth();
@@ -15,6 +20,8 @@ const HomePage = () => {
     setIsLogin(false);
     navigate("/login");
   };
+
+  const Siswa = [Siswa4, Siswa5, Siswa6, Siswa7, Siswa8];
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -24,17 +31,23 @@ const HomePage = () => {
             KitaBisaMengajar
           </h1>
           <div className="hidden lg-md::flex xl:flex ml-8 space-x-6">
-            <a href="#" className="text-secondary hover:text-gray-700">
+            <button
+              onClick={() => navigate("/guru")}
+              className="text-secondary hover:text-gray-700"
+            >
               Home
-            </a>
-            <a href="#" className="text-secondary hover:text-gray-700">
+            </button>
+            <button
+              onClick={() => navigate("/about")}
+              className="text-secondary hover:text-gray-700"
+            >
               About As
-            </a>
-            <a href="#" className="text-secondary hover:text-gray-700">
+            </button>
+            <a
+              href="/howitworks"
+              className="text-secondary hover:text-gray-700"
+            >
               How It Works
-            </a>
-            <a href="#" className="text-secondary hover:text-gray-700">
-              Features
             </a>
           </div>
         </div>
@@ -96,9 +109,10 @@ const HomePage = () => {
             <div>
               <div className="flex items-center mb-2">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div
+                  {Siswa.map((i) => (
+                    <img
                       key={i}
+                      src={i}
                       className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"
                     />
                   ))}

@@ -9,7 +9,7 @@ import Footer from "./pages/Footer";
 import DashboardMentor from "./pages/DashBoard/DashboardMentor";
 import Login from "./pages/LoginRegister/Login";
 import { AuthProvider } from "./lib/AuthContext";
-import LandingPages from "./pages/LandingPages/LandingPages";
+import LandingPages from "./pages/LandingPagesGuru/LandingPages";
 import ClassroomInterface from "./pages/ClassroomInterface";
 import Sidebar from "./components/ui/Sidebar";
 import JadwalPage from "./components/ui/JadwalPage";
@@ -18,6 +18,11 @@ import MateriPage from "./components/ui/MateriPage";
 import DiskusiPage from "./components/ui/DiskusiPage";
 import LaporanPage from "./components/ui/LaporanPage";
 import AchievementPage from "./components/ui/AchievementPage";
+import AboutPage from "./pages/AbouPage";
+import HowItWorks from "./pages/HowItWorks";
+import Home from "./pages/Home";
+import LandingPagesSiswa from "./pages/LandingPagesSiswa/LandingPages";
+import HowItWorksStudent from "./pages/HowItWorksStudent";
 
 function App() {
   return (
@@ -53,7 +58,9 @@ function Main() {
         } flex-grow`}
       >
         <Routes>
-          <Route path="/" element={<LandingPages />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/guru" element={<LandingPages />} />
+          <Route path="/siswa" element={<LandingPagesSiswa />} />
           <Route path="/dashboard-mentor" element={<DashboardMentor />} />
           <Route path="/classroomInterface" element={<ClassroomInterface />} />
           <Route path="/jadwal" element={<JadwalPage />} />
@@ -62,6 +69,9 @@ function Main() {
           <Route path="/diskusi" element={<DiskusiPage />} />
           <Route path="/laporan" element={<LaporanPage />} />
           <Route path="/achievement" element={<AchievementPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/howitworksstudent" element={<HowItWorksStudent />} />
         </Routes>
         {showSidebar && <Sidebar />}
         {location.pathname !== "/dashboard-mentor" &&
@@ -72,7 +82,11 @@ function Main() {
           location.pathname !== "/materi" &&
           location.pathname !== "/diskusi" &&
           location.pathname !== "/laporan" &&
-          location.pathname !== "/achievement" && <Footer />}
+          location.pathname !== "/achievement" &&
+          location.pathname !== "/about" &&
+          location.pathname !== "/howitworks" &&
+          location.pathname !== "/howitworksstudent" &&
+          location.pathname !== "/" && <Footer />}
       </main>
     </div>
   );
