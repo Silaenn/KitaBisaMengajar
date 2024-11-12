@@ -20,7 +20,7 @@ const HomePage = () => {
       {/* Navigation */}
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         <div className="flex items-center">
-          <h1 className="text-[36px] font-semibold text-paragraf-primary">
+          <h1 className="md:text-[36px] text-[36px] sm:text-[30px] font-semibold text-paragraf-primary">
             KitaBisaMengajar
           </h1>
           <div className="hidden lg-md::flex xl:flex ml-8 space-x-6">
@@ -123,35 +123,39 @@ const HomePage = () => {
               />
             </div>
             {/* Stats Cards */}
-            <div className="absolute right-0 top-0 h-[604px] bg-white p-6 rounded-lg shadow-lg">
-              <div className="grid grid-cols-1 gap-20 py-10">
+            <div className="absolute xl:-right-16 xl:top-0 lg-md:-top-4 lg-md:-right-10 xl:h-[604px] lg-md:h-[500px] md:-right-20 md:-top-20 sm:top-10 sm:-right-10 bg-white p-6 rounded-lg shadow-lg -top-10 -right-10">
+              <div className="grid grid-cols-1 xl:gap-20 lg-md:gap-14 py-10 gap-10">
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-paragraf-primary">
+                  <div className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-paragraf-primary">
                     5K+
                   </div>
-                  <div className="text-sm text-paragraf-secondary">
+                  <div className="text-sm sm:text-xs md:text-xs lg:text-sm text-paragraf-secondary">
                     Guru Volunter
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-paragraf-primary">
+                  <div className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-paragraf-primary">
                     10k+
                   </div>
-                  <div className="text-sm text-paragraf-secondary">
+                  <div className="text-sm sm:text-xs md:text-xs lg:text-sm text-paragraf-secondary">
                     Jam Mengajar
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-paragraf-primary">
+                  <div className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-paragraf-primary">
                     250+
                   </div>
-                  <div className="text-sm text-paragraf-secondary">Sekolah</div>
+                  <div className="text-sm sm:text-xs md:text-xs lg:text-sm text-paragraf-secondary">
+                    Sekolah
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-paragraf-primary">
+                  <div className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-paragraf-primary">
                     50K+
                   </div>
-                  <div className="text-sm text-paragraf-secondary">Siswa</div>
+                  <div className="text-sm sm:text-xs md:text-xs lg:text-sm text-paragraf-secondary">
+                    Siswa
+                  </div>
                 </div>
               </div>
             </div>

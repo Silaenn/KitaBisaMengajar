@@ -50,7 +50,7 @@ function Main() {
       <main
         className={`${location.pathname === "/" ? "mx-auto" : ""} ${
           location.pathname === "/login" ? "" : ""
-        }`}
+        } flex-grow`}
       >
         <Routes>
           <Route path="/" element={<LandingPages />} />
@@ -63,18 +63,17 @@ function Main() {
           <Route path="/laporan" element={<LaporanPage />} />
           <Route path="/achievement" element={<AchievementPage />} />
         </Routes>
+        {showSidebar && <Sidebar />}
+        {location.pathname !== "/dashboard-mentor" &&
+          location.pathname !== "/classroomInterface" &&
+          location.pathname !== "/login" &&
+          location.pathname !== "/jadwal" &&
+          location.pathname !== "/kelas" &&
+          location.pathname !== "/materi" &&
+          location.pathname !== "/diskusi" &&
+          location.pathname !== "/laporan" &&
+          location.pathname !== "/achievement" && <Footer />}
       </main>
-
-      {showSidebar && <Sidebar />}
-      {location.pathname !== "/dashboard-mentor" &&
-        location.pathname !== "/classroomInterface" &&
-        location.pathname !== "/login" &&
-        location.pathname !== "/jadwal" &&
-        location.pathname !== "/kelas" &&
-        location.pathname !== "/materi" &&
-        location.pathname !== "/diskusi" &&
-        location.pathname !== "/laporan" &&
-        location.pathname !== "/achievement" && <Footer />}
     </div>
   );
 }

@@ -25,8 +25,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-800 text-white py-12 mt-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center text-center">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h3 className="text-lg font-semibold mb-4">{category}</h3>
