@@ -30,7 +30,7 @@ const Superiority = () => {
             <FeatureCard
               icon={Cpu}
               title="AI-Powered Matching"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Temukan pasangan belajar yang tepat menggunakan kecerdasan buatan."
             />
             <FeatureCard
               icon={MessageSquare}
@@ -40,12 +40,12 @@ const Superiority = () => {
             <FeatureCard
               icon={CheckCircle}
               title="Quality Assurance"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Pembelajaran dengan standar kualitas yang terjamin."
             />
             <FeatureCard
               icon={Award}
               title="Gamification System"
-              description="Fitur kolaborasi langsung dengan whiteboard interaktif dan screen sharing"
+              description="Pembelajaran lebih menyenangkan dengan sistem gamifikasi."
             />
           </div>
         </div>

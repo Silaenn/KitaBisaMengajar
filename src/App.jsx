@@ -23,6 +23,7 @@ import HowItWorks from "./pages/HowItWorks";
 import Home from "./pages/Home";
 import LandingPagesSiswa from "./pages/LandingPagesSiswa/LandingPages";
 import HowItWorksStudent from "./pages/HowItWorksStudent";
+import DashboardStudent from "./pages/DashBoard/DashboardStudent";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function Main() {
     "/diskusi",
     "/laporan",
     "/achievement",
+    "/dashboard-student",
   ].includes(location.pathname);
 
   return (
@@ -62,6 +64,7 @@ function Main() {
           <Route path="/guru" element={<LandingPages />} />
           <Route path="/siswa" element={<LandingPagesSiswa />} />
           <Route path="/dashboard-mentor" element={<DashboardMentor />} />
+          <Route path="/dashboard-student" element={<DashboardStudent />} />
           <Route path="/classroomInterface" element={<ClassroomInterface />} />
           <Route path="/jadwal" element={<JadwalPage />} />
           <Route path="/kelas" element={<KelasVirtualPage />} />
@@ -86,6 +89,7 @@ function Main() {
           location.pathname !== "/about" &&
           location.pathname !== "/howitworks" &&
           location.pathname !== "/howitworksstudent" &&
+          location.pathname !== "/dashboard-student" &&
           location.pathname !== "/" && <Footer />}
       </main>
     </div>
