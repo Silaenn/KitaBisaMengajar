@@ -114,7 +114,6 @@ const DashboardMentor = () => {
       subject: "Matematika",
       topic: "Aljabar Dasar",
       grade: "Kelas 8",
-      school: "SMP Negeri 1 Raja Ampat",
       date: "12 November 2024",
       time: "09:00 WIB",
       students: 15,
@@ -124,7 +123,6 @@ const DashboardMentor = () => {
       subject: "IPA",
       topic: "Sistem Tata Surya",
       grade: "Kelas 7",
-      school: "SMP Negeri 2 Wamena",
       date: "13 November 2024",
       time: "10:30 WIB",
       students: 12,
@@ -265,8 +263,8 @@ const DashboardMentor = () => {
         <div className="grid grid-cols-3 gap-6">
           {/* Upcoming Classes */}
           <div className="col-span-2">
-            <div className="bg-white rounded-lg border p-6">
-              <h3 className="text-lg font-semibold mb-4">Kelas Mendatang</h3>
+            <div className="bg-white rounded-lg border p-6 mb-8">
+              <h3 className="text-lg font-semibold mb-4">Jadwal Mendatang</h3>
               <div className="space-y-4">
                 {nextClasses.map((class_) => (
                   <div
@@ -294,6 +292,45 @@ const DashboardMentor = () => {
                         <p className="text-sm text-gray-500">Sekolah</p>
                         <p className="font-medium">{class_.school}</p>
                       </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Waktu</p>
+                        <p className="font-medium">{class_.time}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Jumlah Siswa</p>
+                        <p className="font-medium">{class_.students} siswa</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white rounded-lg border p-6">
+              <h3 className="text-lg font-semibold mb-4">Kelas Mendatang</h3>
+              <div className="space-y-4">
+                {nextClasses.map((class_) => (
+                  <div
+                    key={class_.id}
+                    className="p-4 border rounded-lg hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <h4 className="font-bold text-lg">{class_.subject}</h4>
+                        <p className="text-gray-600">{class_.topic}</p>
+                      </div>
+                      <button
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        onClick={() => navigate("/classroomInterface")}
+                      >
+                        Masuk Kelas
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-4 gap-4">
+                      <div>
+                        <p className="text-sm text-gray-500">Tingkat</p>
+                        <p className="font-medium">{class_.grade}</p>
+                      </div>
+
                       <div>
                         <p className="text-sm text-gray-500">Waktu</p>
                         <p className="font-medium">{class_.time}</p>
