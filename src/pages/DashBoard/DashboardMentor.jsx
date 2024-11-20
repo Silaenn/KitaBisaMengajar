@@ -26,6 +26,8 @@ import {
   Sun,
   Moon,
   Check,
+  Plus,
+  ArrowRight,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ProfileDummy from "../../assets/DummyProfile.jpg";
@@ -35,6 +37,30 @@ const DashboardMentor = () => {
   const ref = useRef(null);
   const [currentView, setCurrentView] = useState("dropdown");
   const navigate = useNavigate();
+  const [currentClass, setCurrentClass] = useState(null);
+  const [showClass, setShowClass] = useState(null);
+
+  useEffect(() => {
+    const checkClassTime = () => {
+      const now = new Date();
+      const formattedNow = now.toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Asia/Jakarta",
+      });
+
+      const match = nextClasses.find(
+        (class_) =>
+          class_.date === now.toLocaleDateString("id-ID") &&
+          class_.time.startsWith(formattedNow)
+      );
+
+      setCurrentClass(match || null);
+    };
+
+    const interval = setInterval(checkClassTime, 1000); // Periksa setiap detik
+    return () => clearInterval(interval); // Hapus interval saat komponen di-unmount
+  }, []);
 
   const renderView = () => {
     switch (currentView) {
@@ -259,6 +285,37 @@ const DashboardMentor = () => {
           ))}
         </div>
 
+        <div className="flex justify-around mb-10 gap-10">
+          <button
+            className="flex items-center space-x-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-lg"
+            onClick={() => navigate("/jadwal")}
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>Tambah Jadwal</span>
+          </button>
+          <button
+            className="flex items-center space-x-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-lg"
+            onClick={() => navigate("/kelas")}
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>Buat Kelas Virtual</span>
+          </button>
+          <button
+            className="flex items-center space-x-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-lg"
+            onClick={() => navigate("/materi")}
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>Unggah Materi</span>
+          </button>
+          <button
+            className="flex items-center space-x-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-lg"
+            onClick={() => navigate("/diskusi")}
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>Buat Diskusi Baru</span>
+          </button>
+        </div>
+
         {/* Main Grid */}
         <div className="grid grid-cols-3 gap-6">
           {/* Upcoming Classes */}
@@ -277,7 +334,9 @@ const DashboardMentor = () => {
                         <p className="text-gray-600">{class_.topic}</p>
                       </div>
                       <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className={`${
+                          showClass == class_.time ? "block" : "none"
+                        } px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors`}
                         onClick={() => navigate("/classroomInterface")}
                       >
                         Masuk Kelas
@@ -287,10 +346,6 @@ const DashboardMentor = () => {
                       <div>
                         <p className="text-sm text-gray-500">Tingkat</p>
                         <p className="font-medium">{class_.grade}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500">Sekolah</p>
-                        <p className="font-medium">{class_.school}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Waktu</p>
